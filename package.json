@@ -11,7 +11,7 @@
     "prepackage": "node deployment/createSAMConfiguration.js > samconfig.toml",
     "package": "sam package",
     "predeploy": "npm run package",
-    "deploy": "sam deploy"
+    "deploy": "SAM_BUCKET=heic-code-build sam deploy"
   },
   "repository": {
     "type": "git",
