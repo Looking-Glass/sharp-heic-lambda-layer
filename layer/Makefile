@@ -33,7 +33,7 @@ libheif: libde265
 	cd libheif-$(LIBHEIF_VERSION) && ./autogen.sh && ./configure --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 libvips:
-	sudo yum remove libwebp
+	yum remove -y libwebp
 
 	# Install and enable the EPEL RPM package on Amazon Linux 2
 	yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
