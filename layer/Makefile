@@ -35,5 +35,5 @@ build-SharpHEICLayer:
 
 	cp /usr/bin/vips /usr/bin/vipsedit /usr/bin/vipsheader /usr/bin/vipsprofile /usr/bin/vipsthumbnail $(ARTIFACTS_DIR)/bin
 
-	npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --force @img/sharp-linux-x64
-	npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --os=linux --cpu=x64 sharp
+	pkg-config --modversion vips-cpp
+	SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --os=linux --cpu=x64 sharp@0.32.6
