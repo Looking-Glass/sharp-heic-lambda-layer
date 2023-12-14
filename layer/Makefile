@@ -30,10 +30,10 @@ build-SharpHEICLayer:
 	# Install libvips with HEIC support (+ development files and command-line tools)
 	yum install -y vips vips-heif vips-devel vips-tools
 
-	mkdir -p "$(ARTIFACTS_DIR)/lib"
+	mkdir -p "$(ARTIFACTS_DIR)/bin"
 	mkdir -p "$(ARTIFACTS_DIR)/nodejs"
 
-	cp /usr/bin/vips /usr/bin/vipsedit /usr/bin/vipsheader /usr/bin/vipsprofile /usr/bin/vipsthumbnail $(ARTIFACTS_DIR)/bin/
+	cp /usr/bin/vips /usr/bin/vipsedit /usr/bin/vipsheader /usr/bin/vipsprofile /usr/bin/vipsthumbnail $(ARTIFACTS_DIR)/bin
 
 	npm --prefix $(ARTIFACTS_DIR)/nodejs/ install --force @img/sharp-linux-x64
 	npm --prefix $(ARTIFACTS_DIR)/nodejs/ install --os=linux --cpu=x64 sharp
