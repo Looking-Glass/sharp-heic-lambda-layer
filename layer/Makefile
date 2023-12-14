@@ -31,11 +31,15 @@ build-SharpHEICLayer:
 	yum install -y libheif libheif-devel vips vips-heif vips-devel vips-tools
 
 	mkdir -p "$(ARTIFACTS_DIR)/bin"
+	mkdir -p "$(ARTIFACTS_DIR)/lib"
 	mkdir -p "$(ARTIFACTS_DIR)/nodejs/node16"
 
 	cp /usr/bin/vips /usr/bin/vipsedit /usr/bin/vipsheader /usr/bin/vipsprofile /usr/bin/vipsthumbnail $(ARTIFACTS_DIR)/bin
 
 	pkg-config --modversion vips-cpp
 	vips -l | grep heif
+
+	cp /lib64/libvips-cpp.so.42 $(ARTIFACTS_DIR)/lib
+	cp /lib64/libvips-cpp.so $(ARTIFACTS_DIR)/lib
 
 	npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --os=linux --cpu=x64 sharp@0.32.6
