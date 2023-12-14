@@ -31,9 +31,9 @@ build-SharpHEICLayer:
 	yum install -y vips vips-heif vips-devel vips-tools
 
 	mkdir -p "$(ARTIFACTS_DIR)/bin"
-	mkdir -p "$(ARTIFACTS_DIR)/nodejs"
+	mkdir -p "$(ARTIFACTS_DIR)/nodejs/node16"
 
 	cp /usr/bin/vips /usr/bin/vipsedit /usr/bin/vipsheader /usr/bin/vipsprofile /usr/bin/vipsthumbnail $(ARTIFACTS_DIR)/bin
 
-	npm --prefix $(ARTIFACTS_DIR)/nodejs/ install --force @img/sharp-linux-x64
-	npm --prefix $(ARTIFACTS_DIR)/nodejs/ install --os=linux --cpu=x64 sharp
+	npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --force @img/sharp-linux-x64
+	npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --os=linux --cpu=x64 sharp
