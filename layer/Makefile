@@ -28,7 +28,7 @@ build-SharpHEICLayer:
 	yum-config-manager --enable remi
 
 	# Install libvips with HEIC support (+ development files and command-line tools)
-	yum install -y vips vips-heif vips-devel vips-tools
+	yum install -y libheif libheif-devel vips vips-heif vips-devel vips-tools
 
 	mkdir -p "$(ARTIFACTS_DIR)/bin"
 	mkdir -p "$(ARTIFACTS_DIR)/nodejs/node16"
@@ -36,4 +36,6 @@ build-SharpHEICLayer:
 	cp /usr/bin/vips /usr/bin/vipsedit /usr/bin/vipsheader /usr/bin/vipsprofile /usr/bin/vipsthumbnail $(ARTIFACTS_DIR)/bin
 
 	pkg-config --modversion vips-cpp
-	SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --os=linux --cpu=x64 sharp@0.32.6
+	vips -l | grep heif
+
+	npm --prefix $(ARTIFACTS_DIR)/nodejs/node16/ install --os=linux --cpu=x64 sharp@0.32.6
